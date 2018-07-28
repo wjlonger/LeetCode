@@ -25,17 +25,14 @@ public class 验证回文字符串 {
     }
 
     public static boolean isPalindrome(String s) {
-        char[] cs = s.toLowerCase().toCharArray();
+        s = s.toLowerCase().replaceAll("[^a-z0-9]","");
+        char[] cs = s.toCharArray();
         int i = 0;
         int j = cs.length - 1;
-        while (i++ < j--){
-            if(cs[i] == cs[j]){
-                continue;
-            }
-
-            boolean f1 = (cs[i] >= 'a' && cs[i]<='z')||(cs[i]>='0'&&cs[i]<='9');
-            boolean f2 = (cs[j] >= 'a' && cs[j]<='z')||(cs[j]>='0'&&cs[j]<='9');
-            if(f1&&f2) return false;
+        while (i < j){
+            if(cs[i] != cs[j]) return false;
+            i++;
+            j--;
         }
         return true;
 
