@@ -30,8 +30,9 @@ public class 数数并说 {
      */
 
     public static void main(String[] args) {
-        System.out.println(countAndSay(4));
+        System.out.println(countAndSay(32));
     }
+
     public static String countAndSay(int n) {
         if (n < 1)
             return "";
@@ -47,10 +48,10 @@ public class 数数并说 {
                     num++;
                     i++;
                 }
-                //System.out.println("" + num + first);
                 res.append(num).append(first);
             }
             return res.toString();
         }
     }
+
 }
