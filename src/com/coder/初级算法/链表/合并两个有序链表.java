@@ -15,7 +15,6 @@ public class 合并两个有序链表 {
 
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         return null;
-
     }
 
     static class ListNode {
