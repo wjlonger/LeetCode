@@ -33,35 +33,29 @@ public class 删除链表的倒数第N个节点 {
 
     }
 
+    /**
+     *
+     * 脑袋不够用啊！
+     *
+     * @param head
+     * @param n
+     * @return
+     */
     public static ListNode removeNthFromEnd(ListNode head, int n) {
-        int i = 1;
-        ListNode node = head;
-        while ( node.next != null){
-            node = node.next;
-            i++;
+        ListNode p = head;
+        ListNode q = head;
+        for(int i=0; i<n; i++){
+            p = p.next;
         }
-        int index = i - n;
-        i = 0;
-        node = head;
-        do{
-            if(i == index){
-                if(i == 0){
-                    if(head.next == null){
-                        return null;
-                    }
-                    head.val = head.next.val;
-                    head.next = head.next.next;
-                    return head;
-                }else{
-                    node.val = node.next.val;
-                    node.next = node.next.next;
-                    return head;
-                }
-            }else{
-                i++;
-                node = node.next;
-            }
-        }while (node != null);
+        if(p == null){
+            head = head.next;
+            return head;
+        }
+        while(p.next!=null){
+            p = p.next;
+            q = q.next;
+        }
+        q.next = q.next.next;
         return head;
     }
 
