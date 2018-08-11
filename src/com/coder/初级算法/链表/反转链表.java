@@ -30,12 +30,5 @@ public class 反转链表 {
         head.next = null;
         return prev;
     }
-
-    static class ListNode {
-        int val;
-        ListNode next;
-        ListNode(int x) {
-            val = x;
-        }
-    }
 }
+
