@@ -22,16 +22,12 @@ public class 环形链表 {
         System.out.println(hasCycle(p1));
     }
     public static boolean hasCycle(ListNode head) {
-        ListNode temp = null;
-        while (head != null){
-            temp= head.next;
-            while (temp != null){
-                if(head.val == temp.val){
-                    return true;
-                }
-                temp = temp.next;
-            }
-            head = head.next;
+        ListNode slow = head;
+        ListNode fast = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow == fast) return true;
         }
         return false;
 
