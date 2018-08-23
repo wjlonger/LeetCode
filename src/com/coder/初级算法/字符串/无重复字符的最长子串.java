@@ -18,7 +18,7 @@ public class 无重复字符的最长子串 {
      */
 
     public static int lengthOfLongestSubstring(String s) {
-        String temp = new String(s);
+        //(int)Math.random() * (12 - 1 + 1)
         return 0;
 
     }
