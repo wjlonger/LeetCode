@@ -39,41 +39,14 @@ public class 对称二叉树 {
      * @return
      */
     public static boolean isSymmetric(TreeNode root) {
-        List<Integer> treeNodes = new ArrayList<Integer>();
-        TreeNode A = new TreeNode(1);
-        TreeNode B = new TreeNode(2);
-        TreeNode C = new TreeNode(3);
-        TreeNode D = new TreeNode(3);
-        TreeNode E = new TreeNode(2);
-        A.left = B;
-        A.right = C;
-        B.left = D;
-        C.left = E;
-        inOrder(A,treeNodes);
-        for(Integer t : treeNodes){
-            System.out.println(t);
-        }
-        int i = 0;
-        int j = treeNodes.size() - 1;
-        while (i < j){
-            if(treeNodes.get(i++) != treeNodes.get(j--)){
-                return false;
-            }
-        }
-        return true;
+        if(root == null) return true;
+        return isTreeSymmertic(root.left,root.right);
     }
 
-    public static void inOrder(TreeNode node,List<Integer> list){
-        if(node != null){
-            inOrder(node.left,list);
-            if(node != null){
-                list.add(node.val);
-            }else{
-                list.add(null);
-            }
-            inOrder(node.right,list);
-        }else{
-            list.add(null);
-        }
+    public static boolean isTreeSymmertic(TreeNode left,TreeNode right){
+        if(left == null && right == null) return true;
+        if(left == null || right == null) return false;
+        if(left.val != right.val) return false;
+        return isTreeSymmertic(left.left,right.right) && isTreeSymmertic(left.right,right.left);
     }
 }
