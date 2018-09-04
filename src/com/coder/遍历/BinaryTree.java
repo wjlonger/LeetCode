@@ -187,8 +187,12 @@ public class BinaryTree {
      */
     public void LayerOrder(TreeNode root) {
         Queue<TreeNode> queue = new ArrayDeque<>();
+        //向队列中插入一个元素，并返回true
+        //如果队列已满，返回false
         if (root != null) queue.offer(root);
         while (!queue.isEmpty()) {
+            //取出队列头部的元素，并从队列中移除
+            //队列为空，返回null
             TreeNode node = queue.poll();
             System.out.print(node.val);
             if (node.left != null) queue.offer(node.left);

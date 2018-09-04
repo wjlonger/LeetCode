@@ -1,5 +1,7 @@
 package com.coder.初级算法.树;
 
+import sun.reflect.generics.tree.Tree;
+
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,11 +31,41 @@ public class 二叉树的层次遍历 {
      */
 
     public List<List<Integer>> levelOrder(TreeNode root) {
-        return null;
+        Queue<TreeNode> queue = new ArrayDeque<>();
+        List<List<Integer>> lists = new ArrayList<>();
+        if(root != null){
+            queue.offer(root);
+        }
+        while (!queue.isEmpty()){
+            lists.add(offer(queue,new ArrayList<>()));
+        }
+        return lists;
     }
 
-    public List<Integer> add(TreeNode node,List<Integer> list){
-
+    public static List<Integer> offer(Queue<TreeNode> queue,List<Integer> list){
+        List<TreeNode> treeNodes = new ArrayList<>();
+        while (!queue.isEmpty()){
+            TreeNode node = queue.poll();
+            if(node != null){
+                list.add(node.val);
+                treeNodes.add(node);
+            }
+        }
+        for (TreeNode node : treeNodes){
+            add(node,queue);
+        }
         return list;
+
     }
+    public static void add(TreeNode node,Queue<TreeNode> queue){
+        if(node != null){
+            if(node.left != null){
+                queue.offer(node.left);
+            }
+            if(node.right != null){
+                queue.offer(node.right);
+            }
+        }
+    }
+
 }
