@@ -1,5 +1,7 @@
 package com.coder.初级算法.树;
 
+import sun.reflect.generics.tree.Tree;
+
 public class 将有序数组转换为二叉搜索树 {
 
     /**
@@ -23,7 +25,19 @@ public class 将有序数组转换为二叉搜索树 {
      */
 
     public TreeNode sortedArrayToBST(int[] nums) {
-
+        if(nums == null || nums.length == 0){
+            return null;
+        }
+        return getTree(nums,0,nums.length-1);
+    }
+    public TreeNode getTree(int[] nums, int left,int right){
+        if(left <= right){
+            int mid= (left + right) / 2;
+            TreeNode node = new TreeNode(nums[mid]);
+            node.left = getTree(nums,left,mid - 1);
+            node.right =getTree(nums,mid +1,right);
+            return node;
+        }
         return null;
     }
 
