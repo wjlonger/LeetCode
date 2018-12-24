@@ -77,8 +77,8 @@ public class 有效的数独 {
                         return false;
                     }
                 }
-                int MaxI = 0;
-                int MaxJ = 0;
+                int maxI = 0;
+                int maxJ = 0;
                 int MinI = 0;
                 int MinJ = 0;
                 int tempI = i % 3;
@@ -86,15 +86,15 @@ public class 有效的数独 {
                 switch (tempI) {
                     case 0:
                         MinI = i;
-                        MaxI = i + 2;
+                        maxI = i + 2;
                         break;
                     case 1:
                         MinI = i - 1;
-                        MaxI = i + 1;
+                        maxI = i + 1;
                         break;
                     case 2:
                         MinI = i - 2;
-                        MaxI = i;
+                        maxI = i;
                         break;
                     default:
                         break;
@@ -102,21 +102,21 @@ public class 有效的数独 {
                 switch (tempJ) {
                     case 0:
                         MinJ = j;
-                        MaxJ = j + 2;
+                        maxJ = j + 2;
                         break;
                     case 1:
                         MinJ = j - 1;
-                        MaxJ = j + 1;
+                        maxJ = j + 1;
                         break;
                     case 2:
                         MinJ = j - 2;
-                        MaxJ = j;
+                        maxJ = j;
                         break;
                     default:
                         break;
                 }
-                for (int i2 = MinI; i2 <= MaxI; i2++) {
-                    for (int j2 = MinJ; j2 <= MaxJ; j2++) {
+                for (int i2 = MinI; i2 <= maxI; i2++) {
+                    for (int j2 = MinJ; j2 <= maxJ; j2++) {
                         if(i2 == i && j2 == j) {
                             continue;
                         }
