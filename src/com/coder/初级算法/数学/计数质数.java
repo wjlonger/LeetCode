@@ -16,19 +16,25 @@ public class 计数质数 {
 
     public static void main(String[] args) {
         计数质数 计数质数 = new 计数质数();
-        System.out.println(计数质数.countPrimes(10));
+        System.out.println(计数质数.countPrimes(499979));
     }
     public int countPrimes(int n) {
-        int count = 0;
-        for(int i=1; i<n; i++){
-            for(int j=2; j<i; j++){
-                if(i % j == 0){
-                    System.out.println("i:" + i + " j:" + j);
-                    count++;
-                    break;
+        boolean notPrime[] = new boolean[n + 2];
+        notPrime[0] = notPrime[1] = true;
+        for (int i = 2; i * i < n; i++) {
+            if (!notPrime[i]) {
+                int c = i * i;
+                while (c < n) {
+                    notPrime[c] = true;
+                    c += i;
                 }
             }
         }
-        return count;
+        int ans = 0;
+        for (int i = 0; i < n; i++) {
+            if (!notPrime[i])
+                ans ++;
+        }
+        return ans;
     }
 }
