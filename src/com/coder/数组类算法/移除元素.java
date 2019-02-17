@@ -1,5 +1,7 @@
 package com.coder.数组类算法;
 
+import java.util.Arrays;
+
 public class 移除元素 {
 
     /**
@@ -44,7 +46,20 @@ public class 移除元素 {
      * }
      */
 
-    public int removeElement(int[] nums, int val) {
-        return 0;
+    public static int removeElement(int[] nums, int val) {
+        int[] newNums = new int[nums.length];
+        int index = 0;
+        for(int i = 0; i<nums.length; i++){
+            if(nums[i] != val){
+                newNums[index++] = nums[i];
+            }
+        }
+        System.arraycopy(newNums, 0, nums, 0, nums.length);
+        return index;
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {2,2};
+        System.out.println(removeElement(nums, 2));
     }
 }
