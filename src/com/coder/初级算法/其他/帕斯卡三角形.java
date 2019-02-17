@@ -27,7 +27,28 @@ public class 帕斯卡三角形 {
      * ]
      */
 
-    public List<List<Integer>> generate(int numRows) {
-        return null;
+    public static List<List<Integer>> generate(int numRows) {
+        List<List<Integer>> ans = new ArrayList<>();
+        for (int i = 0; i < numRows; i++) {
+            List<Integer> list = new ArrayList<>();
+            for (int j = 0; j <= i; j++) {
+                if (j == 0 || j == i )
+                    list.add(1);
+                else
+                    list.add(ans.get(i - 1).get(j) + ans.get(i - 1).get(j - 1));
+            }
+            ans.add(list);
+        }
+        return ans;
+    }
+
+    public static void main(String[] args) {
+        List<List<Integer>> lists = generate(5);
+        for(List<Integer> list : lists){
+            for(Integer i : list){
+                System.out.print(i + "   ");
+            }
+            System.out.println();
+        }
     }
 }
