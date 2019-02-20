@@ -1,5 +1,9 @@
 package com.coder.哈希表;
 
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+
 public class 同构字符串 {
 
     /**
@@ -26,7 +30,29 @@ public class 同构字符串 {
      * 你可以假设 s 和 t 具有相同的长度。
      */
 
-    public boolean isIsomorphic(String s, String t) {
-        return false;
+    public static boolean isIsomorphic(String s, String t) {
+        Map<Character,Character> characterRelation = new HashMap<>();
+        char[] schars = s.toCharArray();
+        char[] tchars = t.toCharArray();
+        for(int i=0; i<schars.length; i++){
+            Character temp = characterRelation.get(schars[i]);
+            if(null == temp){
+                for(Map.Entry entry : characterRelation.entrySet()){
+                    if(entry.getValue().equals(tchars[i])){
+                        return false;
+                    }
+                }
+                characterRelation.put(schars[i],tchars[i]);
+            }else{
+                if (!temp.equals(tchars[i])) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(isIsomorphic("ab","aa"));
     }
 }
