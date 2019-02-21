@@ -1,4 +1,4 @@
-package com.coder.数组类算法;
+package com.coder.数组;
 
 import java.util.ArrayList;
 import java.util.Arrays;

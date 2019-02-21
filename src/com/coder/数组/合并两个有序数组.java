@@ -1,4 +1,4 @@
-package com.coder.数组类算法;
+package com.coder.数组;
 
 public class 合并两个有序数组 {
 

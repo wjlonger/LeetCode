@@ -1,6 +1,4 @@
-package com.coder.数组类算法;
-
-import java.util.Arrays;
+package com.coder.数组;
 
 public class 删除排序数组中的重复项II {
 

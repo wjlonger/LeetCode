@@ -1,4 +1,4 @@
-package com.coder.数组类算法;
+package com.coder.数组;
 
 public class 验证回文串 {
 

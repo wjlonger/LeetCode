@@ -1,6 +1,5 @@
-package com.coder.数组类算法;
+package com.coder.数组;
 
-import java.util.Arrays;
 import java.util.PriorityQueue;
 
 public class 数组中的第K个最大元素 {
