@@ -101,11 +101,11 @@ public class BinaryTree {
      * 根左右
      * @param node
      */
-    public void PreOrder(TreeNode node) {
+    public void preOrder(TreeNode node) {
         if (node != null) {
             System.out.print(node.val);
-            PreOrder(node.left);
-            PreOrder(node.right);
+            preOrder(node.left);
+            preOrder(node.right);
         }
     }
 
@@ -117,7 +117,7 @@ public class BinaryTree {
      * 3，再出栈右节点，输出其val值，再入栈该右节点的右节点、左节点；直到遍历完该右节点所在子树。
      * @param root
      */
-    public void PreOrder1(TreeNode root) {
+    public void preOrder1(TreeNode root) {
         Stack<TreeNode> stack = new Stack<>();
         if (root != null) {
             stack.push(root);
@@ -136,11 +136,11 @@ public class BinaryTree {
      * 左根右
      * @param node
      */
-    public void InOrder(TreeNode node) {
+    public void inOrder(TreeNode node) {
         if (node != null) {
-            InOrder(node.left);
+            inOrder(node.left);
             System.out.print(node.val);
-            InOrder(node.right);
+            inOrder(node.right);
         }
     }
 
@@ -153,7 +153,7 @@ public class BinaryTree {
      * 4，直到节点为null，且栈为空。
      * @param root
      */
-    public void InOrder1(TreeNode root) {
+    public void inOrder1(TreeNode root) {
         Stack<TreeNode> stack = new Stack<>();
         while (root != null || !stack.empty()) {
             while (root != null) {
@@ -173,10 +173,10 @@ public class BinaryTree {
      * 左右根
      * @param node
      */
-    public void PostOrder(TreeNode node) {
+    public void postOrder(TreeNode node) {
         if (node != null) {
-            PostOrder(node.left);
-            PostOrder(node.right);
+            postOrder(node.left);
+            postOrder(node.right);
             System.out.print(node.val);
         }
     }
@@ -185,7 +185,7 @@ public class BinaryTree {
      * 层序遍历（广度优先遍历）
      * @param root
      */
-    public void LayerOrder(TreeNode root) {
+    public void layerOrder(TreeNode root) {
         Queue<TreeNode> queue = new ArrayDeque<>();
         //向队列中插入一个元素，并返回true
         //如果队列已满，返回false
