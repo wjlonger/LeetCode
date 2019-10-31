@@ -1,5 +1,7 @@
 package com.coder.简单;
 
+import com.coder.初级算法.链表.ListNode;
+
 public class 删除排序链表中的重复元素 {
 
     /**
@@ -26,11 +28,5 @@ public class 删除排序链表中的重复元素 {
             }
         }
         return head;
-    }
-
-    public class ListNode {
-        int val;
-        ListNode next;
-        ListNode(int x) { val = x; }
     }
 }
