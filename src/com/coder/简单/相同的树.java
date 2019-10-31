@@ -44,37 +44,34 @@ public class 相同的树 {
      * 输出: false
      */
 
-    public boolean isSameTree(TreeNode p, TreeNode q) {
-        List<Integer> listP = inOrder(new ArrayList<>(),p);
-        List<Integer> listQ = inOrder(new ArrayList<>(),q);
-        if(listP.size() != listQ.size()){
+    static public boolean isSameTree(TreeNode p, TreeNode q) {
+        if(null == p && null == q){
+            return true;
+        }
+        if(null == p || null == q){
             return false;
         }
-        for(int i=0, j=listP.size(); i<j; i++){
-            if(listP.get(i) != null
-                    && listQ.get(i) != null
-                    && !listP.get(i).equals(listQ.get(i))){
-                return false;
-            }
+        if(p.val != q.val){
+            return false;
+        }
+        if(!isSameTree(p.left, q.left)){
+            return false;
+        }
+        if(!isSameTree(p.right, q.right)){
+            return false;
         }
         return true;
     }
 
-
-    public List<Integer> inOrder(List<Integer> list,TreeNode treeNode){
-        if(null != treeNode){
-            inOrder(list,treeNode.left);
-            list.add(treeNode.val);
-            inOrder(list,treeNode.right);
-        }
-        return list;
-    }
-
     public static void main(String[] args) {
-        List<Integer> list = new ArrayList<>();
-        list.add(1);
-        list.add(null);
-        list.add(1);
-        System.out.println(list.size());
+        TreeNode treeNode1_1 = new TreeNode(1);
+        TreeNode treeNode1_2 = new TreeNode(2);
+        treeNode1_1.left = treeNode1_2;
+
+        TreeNode treeNode2_1 = new TreeNode(1);
+        TreeNode treeNode2_2 = new TreeNode(2);
+        treeNode2_1.right = treeNode2_2;
+
+        System.out.println(isSameTree(treeNode1_1, treeNode2_1));
     }
 }
